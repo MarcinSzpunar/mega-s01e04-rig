@@ -1,6 +1,6 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
 ---
@@ -77,3 +77,35 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Completion record
+
+Purpose: preserve the original plan, its issue list, and the delivery outcomes.
+Scope: the morning digest implementation, reviewer acceptance, and public marker cleanup.
+
+The original plan text above is preserved. The plan is done; issue #8 remains open until
+the coordinator merges this archive into `main`.
+
+### Issues and outcomes
+
+| Issue | Status | Outcome |
+|-------|--------|---------|
+| [#1](https://github.com/MarcinSzpunar/mega-s01e04-rig/issues/1) | Closed | Shared digest types and reader interface committed. |
+| [#2](https://github.com/MarcinSzpunar/mega-s01e04-rig/issues/2) | Closed | Run log reader implemented and tested. |
+| [#3](https://github.com/MarcinSzpunar/mega-s01e04-rig/issues/3) | Closed | Server-rendered digest page delivered. |
+| [#4](https://github.com/MarcinSzpunar/mega-s01e04-rig/issues/4) | Closed | JSON digest route delivered with the shared reader and ordering. |
+| [#5](https://github.com/MarcinSzpunar/mega-s01e04-rig/issues/5) | Closed | Status board links nights to digests with final status counts. |
+| [#6](https://github.com/MarcinSzpunar/mega-s01e04-rig/issues/6) | Closed | Route tests cover HTML and JSON using temporary run logs. |
+| [#7](https://github.com/MarcinSzpunar/mega-s01e04-rig/issues/7) | Closed | Marked preview submitted and seen by the reviewer; acceptance recorded after the earlier premature closure and reopening. |
+| [#8](https://github.com/MarcinSzpunar/mega-s01e04-rig/issues/8) | Open; pending merge | Public marker removal verified; this archive completes the repository work when merged into `main`. |
+
+### Review and cleanup verification
+
+- The human relayed the course confirmation: "The reviewer has seen the preview... take
+  marker off ... finish plan" and approved replacement with "replace preview".
+- The coordinator reported exporting through `app.request` with `env -u LANE_MARKER` to
+  temporary HTML outside git and deploying over the same production URL.
+- An independent fetch of <https://mega-s01e04-rig-preview-dbq.pages.dev/> confirmed the
+  banner says `no marker set` and the previous lane marker is absent from the returned HTML.
+- Marker cleanup follows [ADR 0003](../../adr/0003-previews-are-public-and-short-lived.md).
+  The archive contains no preview HTML or environment values.
